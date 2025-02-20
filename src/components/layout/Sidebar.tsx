@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -55,15 +54,18 @@ export const Sidebar = () => {
 
         <nav className="space-y-2">
           {menuItems.map((item) => (
-            <a
-              key={item.label}
+            <a  key={item.label}
               href={item.href}
               className={cn(
-                "flex items-center space-x-2 text-muted-foreground hover:text-foreground hover:bg-accent px-3 py-2 rounded-lg transition-all duration-200",
-                !collapsed && "w-full"
+                "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200",
+                collapsed 
+                  ? "justify-center py-0 px-1" 
+                  : "justify-start py-2 px-4"
               )}
             >
-              <item.icon className="h-5 w-5" />
+              <item.icon className={cn(
+                collapsed ? "h-8 w-8" : "h-5 w-5 mr-2"
+              )} />
               {!collapsed && <span>{item.label}</span>}
             </a>
           ))}
