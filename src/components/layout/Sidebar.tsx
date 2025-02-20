@@ -8,10 +8,14 @@ import {
   Settings,
   Menu,
   X,
+  Home, 
+  TrendingUp 
 } from "lucide-react";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Dashboard", href: "/" },
+  { icon: Home, label: "Home", href: "/" },
+  { icon: TrendingUp, label: "My Progress", href: "/progress" },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: BarChart2, label: "Analytics", href: "/analytics" },
   { icon: Users, label: "Team", href: "/team" },
   { icon: Settings, label: "Settings", href: "/settings" },
@@ -52,6 +56,7 @@ export const Sidebar = () => {
           </h1>
         </div>
 
+
         <nav className="space-y-2">
           {menuItems.map((item) => (
             <a  key={item.label}
@@ -59,11 +64,12 @@ export const Sidebar = () => {
               className={cn(
                 "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200",
                 collapsed 
-                  ? "justify-center py-0 px-1" 
-                  : "justify-start py-2 px-4"
+                ? "justify-center py-0 px-1" 
+                : "justify-start py-2 px-4"
               )}
             >
               <item.icon className={cn(
+                "transition-all duration-200",
                 collapsed ? "h-8 w-8" : "h-5 w-5 mr-2"
               )} />
               {!collapsed && <span>{item.label}</span>}
