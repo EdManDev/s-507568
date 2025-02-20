@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProgressPage from "./pages/Progress";
+import Analytics from "./pages/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/analytics" element={<Analytics />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
