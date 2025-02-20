@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to s-507568 project
 
 ## Project info
 
