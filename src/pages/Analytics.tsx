@@ -1,24 +1,21 @@
-// import React from 'react'
-
-// const Analytics = () => {
-//   return (
-//     <div>Analytics</div>
-//   )
-// }
-
-// export default Analytics
-
-
-
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress as ProgressBar } from "@/components/ui/progress";
 import { Gift, Book, Upload, Sparkles } from "lucide-react";
 
+
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Navbar } from "@/components/layout/Navbar";
+
 const Analytics = () => {
   return (
-    <DashboardLayout>
+    <div className="min-h-screen flex bg-background text-foreground">
+    <Sidebar />
+    <div className="flex-1">
+      <Navbar />
+      
+      <main className="p-6">
       <div className="animate-fade-in space-y-8">
         <div className="grid gap-4 md:grid-cols-2">
           <Card className="col-span-2 hover:shadow-lg transition-shadow">
@@ -74,7 +71,10 @@ const Analytics = () => {
           </Card>
         </div>
       </div>
-    </DashboardLayout>
+      </main>
+    </div>
+  </div>
+
   );
 };
 

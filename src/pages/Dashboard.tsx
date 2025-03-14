@@ -8,10 +8,10 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen flex bg-background text-foreground">
       <Sidebar />
-      
+
       <div className="flex-1">
         <Navbar />
-        
+
         <main className="p-6 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
@@ -20,7 +20,7 @@ const Dashboard = () => {
               change="12%"
               isPositive={true}
             />
-            <StatCard 
+            <StatCard
               title="Active Users"
               value="2,345"
               change="8%"

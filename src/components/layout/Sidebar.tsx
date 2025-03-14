@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom'
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -8,12 +9,12 @@ import {
   Settings,
   Menu,
   X,
-  Home, 
-  TrendingUp 
+  Home,
+  TrendingUp
 } from "lucide-react";
 
 const menuItems = [
-  { icon: Home, label: "Home", href: "/" },
+  { icon: Home, label: "Home", href: "/home" },
   { icon: TrendingUp, label: "My Progress", href: "/progress" },
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: BarChart2, label: "Analytics", href: "/analytics" },
@@ -46,26 +47,27 @@ export const Sidebar = () => {
 
       <div className="p-4">
         <div className="mb-8">
-          <h1
-            className={cn(
-              "font-bold transition-all duration-300 ease-in-out",
-              collapsed ? "text-xl" : "text-2xl"
-            )}
-          >
-            {collapsed ? "S" : "Startup"}
-          </h1>
+          <Link to="/" >
+            <h1
+              className={cn(
+                "font-bold transition-all duration-300 ease-in-out",
+                collapsed ? "text-xl" : "text-2xl"
+              )}
+            >
+              {collapsed ? "S" : "Startup"}
+            </h1>
+          </Link>
         </div>
-
 
         <nav className="space-y-2">
           {menuItems.map((item) => (
-            <a  key={item.label}
+            <a key={item.label}
               href={item.href}
               className={cn(
                 "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200",
-                collapsed 
-                ? "justify-center py-0 px-1" 
-                : "justify-start py-2 px-4"
+                collapsed
+                  ? "justify-center py-0 px-1"
+                  : "justify-start py-2 px-4"
               )}
             >
               <item.icon className={cn(

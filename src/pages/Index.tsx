@@ -1,11 +1,11 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Index = () => {
   return (
     <div>
-      <div>Index</div>
-      <Link to="dashboard">Dashboard</Link>
+      <div>Landing Page</div>
+      <Link to="dashboard">Dashboard Link</Link>
     </div>
   )
 }
