@@ -62,7 +62,7 @@ export const Sidebar = () => {
             <h1
               className={cn(
                 "font-bold",
-                collapsed ? "text-xl" : "text-2xl"
+                collapsed ? "text-xl" : "text-xl"
               )}
             >
               {collapsed ? "S" : "Startup"}
@@ -78,8 +78,8 @@ export const Sidebar = () => {
               className={cn(
                 "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg ",
                 collapsed
-                  ? "justify-center py-0 px-1"
-                  : "justify-start py-2 px-4"
+                  ? "justify-center py-1 px-1"
+                  : "justify-start py-2 px-1"
               )}
             >
               <item.icon className={cn(
