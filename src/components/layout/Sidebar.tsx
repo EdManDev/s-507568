@@ -22,8 +22,19 @@ const menuItems = [
   { icon: Settings, label: "Settings", href: "/settings" },
 ];
 
+const SIDEBAR_STATE_KEY = 'sidebar-collapsed-state';
+
 export const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(() => {
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY);
+    return savedState ? JSON.parse(savedState) : false;
+  });
+
+  const handleToggleCollapse = () => {
+    const newState = !collapsed;
+    setCollapsed(newState);
+    localStorage.setItem(SIDEBAR_STATE_KEY, JSON.stringify(newState));
+  };
 
   return (
     <div
@@ -36,7 +47,7 @@ export const Sidebar = () => {
         variant="ghost"
         size="icon"
         className="absolute right-[-20px] top-4 bg-background border border-border rounded-full"
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={handleToggleCollapse}
       >
         {collapsed ? (
           <Menu className="h-4 w-4" />
@@ -61,8 +72,9 @@ export const Sidebar = () => {
 
         <nav className="space-y-2">
           {menuItems.map((item) => (
-            <a key={item.label}
-              href={item.href}
+            <Link
+              key={item.label}
+              to={item.href}
               className={cn(
                 "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200",
                 collapsed
@@ -75,7 +87,7 @@ export const Sidebar = () => {
                 collapsed ? "h-8 w-8" : "h-5 w-5 mr-2"
               )} />
               {!collapsed && <span>{item.label}</span>}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
