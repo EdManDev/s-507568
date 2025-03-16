@@ -39,7 +39,7 @@ export const Sidebar = () => {
   return (
     <div
       className={cn(
-        "h-screen bg-background border-r border-border transition-all duration-300 ease-in-out relative",
+        "h-screen bg-background border-r border-border relative",
         collapsed ? "w-16" : "w-64"
       )}
     >
@@ -61,7 +61,7 @@ export const Sidebar = () => {
           <Link to="/" >
             <h1
               className={cn(
-                "font-bold transition-all duration-300 ease-in-out",
+                "font-bold",
                 collapsed ? "text-xl" : "text-2xl"
               )}
             >
@@ -76,14 +76,14 @@ export const Sidebar = () => {
               key={item.label}
               to={item.href}
               className={cn(
-                "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all duration-200",
+                "flex items-center text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg ",
                 collapsed
                   ? "justify-center py-0 px-1"
                   : "justify-start py-2 px-4"
               )}
             >
               <item.icon className={cn(
-                "transition-all duration-200",
+                "",
                 collapsed ? "h-8 w-8" : "h-5 w-5 mr-2"
               )} />
               {!collapsed && <span>{item.label}</span>}
